@@ -10,8 +10,8 @@ class Client < ActiveRecord::Base
 end
 
 class Barber < ActiveRecord::Base
-end 
+end
 
 get '/' do
-	erb "Hello!"
+	erb :index
 end
