@@ -12,7 +12,7 @@ class Client < ActiveRecord::Base
 	validates :phone, presence: true
 	validates :datestamp, presence: true
 	validates :color, presence: true
-	
+
 end
 
 class Barber < ActiveRecord::Base
@@ -34,8 +34,11 @@ end
 post '/visit' do
 
 	c = Client.new params[:client]
-	c.save
+	if c.save
+		erb "Спасибо! Вы записались!"
+	else
+		erb "can't be blank!"
+	end 
 
-	erb "Спасибо! Вы записались!"
 
 end
