@@ -33,7 +33,6 @@ get '/visit' do
 end
 
 post '/visit' do
-
 	@c = Client.new params[:client]
 	if @c.save
 		erb "Спасибо! Вы записались!"
@@ -41,6 +40,8 @@ post '/visit' do
 		@error = @c.errors.full_messages.first
 		erb :visit
 	end
+end
 
-
+get "/barber/:id" do
+	erb :barber
 end
